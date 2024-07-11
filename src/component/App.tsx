@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <div className="component-app">
-      <Display value={state.next || state.total || '0'} />
+      <Display value={state.next ?? state.total ?? '0'} />
       <ButtonPanel clickHandler={handleClick} />
     </div>
   )

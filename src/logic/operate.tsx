@@ -3,11 +3,11 @@ import Big from 'big.js'
 export default function operate(
   numberOne: string | null,
   numberTwo: string | null,
-  operation: string | null,
+  operation: string,
 ) {
-  const one: Big = Big(numberOne || '0')
+  const one: Big = Big(numberOne ?? '0')
   const two: Big = Big(
-    numberTwo || (operation === '÷' || operation === 'x' ? '1' : '0'),
+    numberTwo ?? (operation === '÷' || operation === 'x' ? '1' : '0'),
   ) //If dividing or multiplying, then 1 maintains current value in cases of null
   if (operation === '+') {
     return one.plus(two).toString()
