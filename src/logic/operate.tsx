@@ -1,8 +1,12 @@
 import Big from 'big.js'
 
-export default function operate(numberOne, numberTwo, operation) {
-  const one = Big(numberOne || '0')
-  const two = Big(
+export default function operate(
+  numberOne: string | null,
+  numberTwo: string | null,
+  operation: string | null,
+) {
+  const one: Big = Big(numberOne || '0')
+  const two: Big = Big(
     numberTwo || (operation === '÷' || operation === 'x' ? '1' : '0'),
   ) //If dividing or multiplying, then 1 maintains current value in cases of null
   if (operation === '+') {
@@ -15,7 +19,7 @@ export default function operate(numberOne, numberTwo, operation) {
     return one.times(two).toString()
   }
   if (operation === '÷') {
-    if (two === '0') {
+    if (two.toString() === '0') {
       alert('Divide by 0 error')
       return '0'
     } else {
